@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/showEntry.css">
+
+    <title>IV Care</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+
+	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	    <ul class="navbar-nav mr-auto">
+	      <li class="nav-item ">
+	        <a class="nav-link" href="index.html">HOME</span></a>
+	      </li>
+	      <li class="nav-item ">
+	        <a class="nav-link" href="addPatient.html">CREATE ENTRY</a>
+	      </li>
+	      <li class="nav-item active">
+	        <a class="nav-link" href="#">SHOW STATUS  <span class="sr-only">(current)</a>
+	      </li>
+	      <li class="nav-item ">
+	        <a class="nav-link" href="removePatient.html">MANAGE ENTRY</a>
+	      </li>
+	    </ul>
+			<form class="form-inline">
+				<button class="btn btn-light" type="button" id="logout">SIGN OUT</button>
+			</form>
+	  	</div>
+		</nav>
+     <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script> 
+    <!-- <script src="./js/config.js"></script>-->
+    <!-- <script src="./js/entry-firebase.js"></script> -->
+    <script type="text/javascript" src="./js/log-out.js"></script>
+
+   
+    <div class="row" style="margin-left: 150px;">
+      <div class="container"  style="margin-left: 20px;  border-radius:5px; width:600px;margin: 20px;" >
+        <div class="row">
+          <div   class=" col-md-6 form-group" style="background-color: red ; text-align: center; text-transform: capitalize;transition:5ms">
+            <label style="margin-top: 10px">Low Level Detection</label>
+          </div>          
+          <div col-md-2 form-group">
+            <img src="./Images/saline.png" />
+          </div>
+          <div id="root" style="padding-left: 20px;">
+          </div>
+        </div>
+    </div>
+    <div class="container"  style="border-radius:5px; width:600px;margin: 20px;" >
+      <div class="row">
+        <div   class=" col-md-6 form-group" style="background-color: rgb(240, 240, 240) ; text-align: center; text-transform: capitalize;transition:5ms">
+          <label style="margin-top: 10px">Level Detection</label>
+        </div>          
+        <div col-md-2 form-group">
+          <img src="./Images/saline.png" />
+        </div>
+        <div id="root2" style="padding-left: 20px;">
+
+        </div>
+      </div>
+  </div>
+  <div class="row"  style="margin-left: 0px;">
+
+    <div class="container"  style="margin-left: 20px;  border-radius:5px; width:600px;margin: 20px;" >
+      <div class="row">
+        <div   class=" col-md-6 form-group" style="background-color: rgb(240, 240, 240) ; text-align: center; text-transform: capitalize;transition:5ms">
+          <label style="margin-top: 10px">Level Detection</label>
+        </div>          
+        <div col-md-2 form-group">
+          <img src="./Images/saline.png" />
+        </div>
+        <div id="root3" style="padding-left: 20px;">
+
+        </div>
+      </div>
+  </div>
+
+  <div class="container"  style="border-radius:5px; width:600px;margin: 20px;" >
+    <div class="row">
+      <div   class=" col-md-6 form-group" style="background-color: rgb(240, 240, 240) ; text-align: center; text-transform: capitalize;transition:5ms">
+        <label style="margin-top: 10px">Level Detection</label>
+      </div>          
+      <div col-md-2 form-group">
+        <img src="./Images/saline.png" />
+      </div>
+      <div id="root4" style="padding-left: 20px;">
+
+      </div>
+    </div>
+</div>
+
+
+
+  </div>
+    </div>
+    <script>
+
+    var firebaseConfig = {
+      apiKey: "AIzaSyBQtOIYkAQdTB2oiuXlQ6sJ0bRlf5OO4rs",
+      authDomain: "infusion-status.firebaseapp.com",
+      databaseURL: "https://infusion-status-default-rtdb.firebaseio.com",
+      projectId: "infusion-status",
+      storageBucket: "infusion-status.appspot.com",
+      messagingSenderId: "237466409266",
+      appId: "1:237466409266:web:4566b55eadc686ab04df2b",
+      measurementId: "G-MP9LJH6LY6"
+    };
+
+    //Initialize firebase
+    firebase.initializeApp(firebaseConfig);
+    var firebaseRef = firebase.database().ref("Room234");
+    //on or once
+    firebaseRef.on("value", function(snapshot){  
+      snapshot.forEach(function(element){
+        document.querySelector('#root').innerHTML += `
+          <div >${element.key}</div>
+
+
+
+          <div>${"Patient Name : Abhay Verma"}</div>
+          <div>${"Drip Status : True"}</div>
+          <div>${"Infusion Status : Empty"}</div>
+        `
+        document.querySelector('#root2').innerHTML += `
+          <div >${"Bed 24"}</div>
+          <div>${"Patient Name : Prachi Jain"}</div>
+          <div>${"Drip Status : False"}</div>
+          <div>${"Infusion Status : No Infusion"}</div>
+        `
+
+        document.querySelector('#root3').innerHTML += `
+          <div >${"Bed 53"}</div>
+          <div>${"Patient Name : Abhinav Bajaj"}</div>
+          <div>${"Drip Status : False"}</div>
+          <div>${"Infusion Status : No Infusion"}</div>
+        `
+        document.querySelector('#root4').innerHTML += `
+          <div >${"Bed 17"}</div>
+          <div>${"Patient Name : Mala Sharma"}</div>
+          <div>${"Drip Status : False"}</div>
+          <div>${"Infusion Status : No Infusion"}</div>
+        `
+       
+
+        console.log(element.key,element.val());
+      });
+    })
+    </script>
+  </body>
+</html>

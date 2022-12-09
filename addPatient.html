@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>IV Care</title>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+   
+  <link rel="stylesheet" href="./css/patientDetailsEntry.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+              <a class="nav-link" href="index.html">HOME</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#">CREATE ENTRY <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="showEntry.html">SHOW STATUS</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="removePatient.html">MANAGE ENTRY</a>
+            </li>
+          </ul>
+          <form class="form-inline">
+            <button class="btn btn-light" type="button" id="logout">SIGN OUT</button>
+          </form>
+          </div>
+        </nav>
+    <div class="container">
+        <h4 class="brand">Patient Details Entry</h4>
+        
+        <div class="contact">
+          <form id="addPatientForm">
+          
+            <div class="form-row">
+                <div class=" col-md-6 form-group">
+                  <label>Patient Name</label>
+                  <input type="name" class="form-control" id="inputName" required placeholder="Enter Name">
+                </div>
+                <div class=" col-md-3 form-group">
+                  <label>Age</label>
+                  <input type="number" class="form-control" id="inputAge" required placeholder="Enter Age">
+                </div>
+                <div class="col-md-3 form-group">
+                  <label>Gender</label>
+                  <input type="text" class="form-control" id="inputGender" required placeholder="Specify Gender">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="col-md-10 form-group">
+                  <label>Address</label>
+                  <input type="text" class="form-control" id="inputAddress" placeholder="Enter Address">
+                </div>
+                <div class="col-md-2 form-group">
+                  <label>Blood Group</label>
+                  <input type="text" class="form-control" id="inputBloodGroup" placeholder="Enter Blood Group">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-md-6 form-group">
+                  <label>Mobile Number</label>
+                  <input type="tel" class="form-control" id="inputNumber" placeholder="Enter Mobile Number">
+                </div>
+                <div class="col-md-6 form-group">
+                  <label>Emergency Mobile Number</label>
+                  <input type="tel" class="form-control" id="inputEmergencyNumber" placeholder="Enter Mobile Number">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-md-6 form-group">
+                  <label>Previous Medical History</label>
+                  <input type="text" class="form-control" id="inputMedHistory" placeholder="Type NONE if no previous medical history">
+                </div>
+                <div class="col-md-6 form-group">
+                  <label>Symptoms</label>
+                  <input type="text" class="form-control" id="inputSymptoms" placeholder="Mention symptoms (if any)">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-md-6 form-group">
+                <label for="sel1">Insurance</label>
+                <select class="form-control" id="inputInsurance">
+                    <option value="" disabled selected>Select your option</option>
+                    <option value="amhi">Apollo Munich Health Insurance Company</option>
+                    <option value="shai">Star Health and Allied insurance Co Ltd</option>
+                    <option value="bagi">Bajaj Allianz General Insurance Co Ltd</option>
+                    <option value="ni">National Insurance Co Ltd</option>
+                </select>
+                </div>
+                <div class="col-md-6 form-group">
+                <label for="sel2">Affiliated Health Scheme</label>
+                <select class="form-control" id="inputHealthScheme">
+                    <option value="" disabled selected>Select your option</option>
+                    <option value="cghs">Central Government Health Scheme(CGHS)</option>
+                    <option value="sghs">State Government Health Scheme(SGHS)</option>
+                    <option value="none">None</option>
+                </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Consulting Doctor's Name</label>
+                <input type="name" class="form-control" id="inputDoctorName" placeholder="Enter Doctor's Name">
+              </div>
+              <div class="form-row">
+                <div class="col-md-6 form-group">
+                  <label>Room Number</label>
+                  <input type="number" class="form-control" id="inputRoomNumber" placeholder="Enter Room Number">
+                </div>
+                <div class="col-md-6 form-group">
+                  <label>Bed Number</label>
+                  <input type="number" class="form-control" id="inputBedNumber" placeholder="Enter Bed Number">
+                </div>
+              </div>
+              <p class="full">
+                <button type="submit">Submit</button>
+              </p>
+              <div class="alert">Patient's Data has been recorded</div>
+
+          </form>
+        </div>
+    </div>
+  
+    <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+    <script src="./js/patientDetailsEntry.js"></script>
+
+    
+  </body>
+</html>

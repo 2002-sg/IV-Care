@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>IV Care</title>
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
+  Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container mt-3">
+        <table class="table">
+            <thead>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Password</th>
+
+            </thead>
+            <tbody id ="tbody1"></tbody>
+        </table>
+    </div>
+    <script type="module">
+//-----------------------------Filling the table----------------------//
+
+        var ptNo = 0;
+        var tbody = document.getElementById("tbody1");
+
+        //Adding one row to the table
+        function AddItemToTable(name,email,password){
+            let trow = document.createElement("tr");
+            let td1 = document.createElement('td');
+            let td2 = document.createElement('td');
+            let td3 = document.createElement('td');
+            let td4 = document.createElement('td');
+
+            td1.innerHTML= ++ptNo;
+            td2.innerHTML= name;
+            td3.innerHTML= email;
+            td3.innerHTML= password;
+            
+            trow.appendChild(td1);
+            trow.appendChild(td2);
+            trow.appendChild(td3);
+            trow.appendChild(td4);
+            
+            tbody.appendChild(trow);
+        }
+
+        function AddAllItemsToTable(data){
+            ptNo = 0;
+            tbody.innerHTML="";
+            data.forEach(element => {
+                AddItemToTable(element.name,element.email,element.password)
+            });
+        }
+       
+
+          // Import the functions you need from the SDKs you need
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+            import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-analytics.js";
+            // TODO: Add SDKs for Firebase products that you want to use
+            // https://firebase.google.com/docs/web/setup#available-libraries
+
+            // Your web app's Firebase configuration
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+            const firebaseConfig = {
+                apiKey: "AIzaSyBQtOIYkAQdTB2oiuXlQ6sJ0bRlf5OO4rs",
+                authDomain: "infusion-status.firebaseapp.com",
+                databaseURL: "https://infusion-status-default-rtdb.firebaseio.com",
+                projectId: "infusion-status",
+                storageBucket: "infusion-status.appspot.com",
+                messagingSenderId: "237466409266",
+                appId: "1:237466409266:web:4566b55eadc686ab04df2b",
+                measurementId: "G-MP9LJH6LY6"
+            };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        import {getDatabase,ref,child,onValue,get}
+        from "https://www.gstatic.com/firebasejs/9.1.1/firebase-database.js";
+
+        firebase.getDatabase();
+
+        
+//---------------------------Getting all data from firebase----------------//
+
+        function GetAllDataOnce(){
+            const dbRef = ref(db);
+            get(child(dbRef, "data"))
+            .then((snapshot)=>{
+                var patients = [];
+
+                snapshot.forEach(childSnapshot => {
+                    patients.push(childSnapshot.val());
+                }) ;
+
+                AddAllItemsToTable(patients);
+            });
+
+            window.onload = GetAllDataOnce;
+        }
+
+
+    </script>
+
+<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+
+
+
+
+    <!-- <div class="form-row">
+        <div class=" col-md-6 form-group">
+          <label>Patient Name</label>
+          <input type="name" class="form-control" id="inputName" required placeholder="Enter Name">
+        </div>
+        
+
+        <div class="col-md-3 form-group">
+          <label>Room Number</label>
+          <input type="number" class="form-control" id="inputRoomNumber" placeholder="Enter Room Number">
+        </div>
+        <div class="col-md-3 form-group">
+          <label>Bed Number</label>
+          <input type="number" class="form-control" id="inputBedNumber" placeholder="Enter Bed Number">
+        </div>
+      </div>
+
+      <hr>
+      <button id ="Selbtn">SELECT</button>
+      <button id ="Updbtn">UPDATE</button>
+      <button id ="Delbtn">DELETE</button> -->
+
+     
+    
+
+        
+</body>
